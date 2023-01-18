@@ -1,0 +1,171 @@
+Declarar variable:
+> var - let - const
+var: tiene un alcance global
+let: el alcance de la variable se limita al bloque de codigo en el que este.
+const: constante, no cambia su valor.
+
+Declarar multiples variables:
+> let num1, num2, num3;
+> let num1 = 10, num2 = 20, num3 = 30;
+
+undefined: existe en el programa pero no tiene un valor asignado.
+
+Dato primitivo: Tipos de datos que forman parte del lenguaje
+
+Scope: alcance 
+
+Hoisting: alcance de ejecucion
+
+NaN : not a number. Operacion de numero con texto. Error
+
+prompt() => solicita un ingreso y devuelve el valor ingresado.
+
+Operadores logicos:
+
+== : Igualdad en valores. No toma en cuenta los tipos
+=== : Igualdad en valor y tipo de dato.
+!== : negado de ===.
+
+
+Arrays:
+inicializar > [a,b,c,d]
+Posicion [X] que no este declarado en el array, lanza undefined
+
+Iteradores:
+
+for in => for ( animal in animales ) > "animal" devuelve el indice de cada elemento
+for of => for ( animal of animales ) > "animal" es el valor del elemento
+label => añadir un nombre arriba del for: 
+    Esto para poder referenciar al for "padre" y poder utilizar break o continue
+forIteration:
+for (let i on x){}
+
+
+Arrow function:
+
+si no recibe parametros : () => {}
+si es un solo parametro : parametro => {}
+si es solo una sentencia : () => sentence;
+si es mas de un parametro : (param1, param2, .., paramN) => {}
+
+const function = () => {
+    sentences...;
+}
+
+function();
+
+POO:
+class animal {
+    
+    constructor(especie, edad, color){
+        this.especie = especie;  //atributos => this. Las estos definiendo aca.
+        this.edad = edad;
+        this.color = color;
+        this.info = `Especie: ${this.especie}, Edad: ${this.edad} y color: ${this.color}`;
+    }
+    verInfo(){  <= metodo
+        document.write(this.info + "<br>")
+    }
+}
+
+const perro = new animal("perro", 5, "negro"); 
+Definir las clases como const, ya que asi se evitarian errores en modificar los valores.
+
+perro.verInfo();
+
+Metodo estatico:
+static Method(){}  => Estos no es necesario que la clase sea instanciada
+Animal.Especie();
+
+getters y setters:
+
+    set modificarRaza(newRace){
+        this.raza = newRace;
+    }
+
+    get getRaza(){
+        return this.raza;
+    }
+    
+perro.modificarRaza = "pedro"
+document.write(perro.getRaza);
+
+
+Metodos de cadenas:
+- startsWith() : si una cadena comienza con la cadena especificada
+- endsWith() : lo mismo, pero si termina. 
+- incldues(): Si una cadena esta dentro de otra cadena. Da igual la posicion.
+- indexOf(): lo mismo que el include, pero devuelve la posicion de la primer letra que se especifico. Es la posicion dentro de la cadena original.
+- lastIndexOf(): busca en toda la cadena, la ultima coincidencia que se encuentra. Desde el principio hasta el final, la ultima coincidencia y devuelve la posicion de la letra inicial.
+
+- padStart(cantidad, cadena): rellena la cadena con la cantidad de caracteres especificados y con que letra.
+- padEnd(cantidad, cadena): lo mismo pero rellena en caso de que no este la cadena completa con la cantidad dicha.
+Si la cadena ya tiene la cantidad de caracteres, esta no se rellena con lo especificado
+Si falta algun espacio, rellena hasta completar. Puede no incluir la cadena especificada completa.
+- repeat(veces): repite la cadena, la cantidad de veces dicha.
+
+- split() : divide la cadena cada vez que encuentre la cadena especificada.
+    Encuentra lo dicho y lo saca y deja lo siguiente por cada posicion.
+
+- substring(startPosition, longitud de la subcadena, arrancando desde 1): Devuelve una porcion de la cadena original.
+-trim(): elimina los espacios en blanco.
+- trimStart(): elimina espacios en blanco al principio de la cadena.
+- trimEnd(): elimina espaciops en blacno al final de la cadena.
+
+
+Metodos de arrays:
+    
+    Transformadores:
+.pop() : Elimina el ultimo elemento del array y lo devuelve
+.shift() : Elimina el primer elemento del array y lo devuelve.
+.push() : Agrega elemento/s al final de la lista y devuelve la cantidad de elementos o tambine posicion del ultimo elemento.
+.reverse() : Invierte el orden de los elementos del array.
+.unshift() : Agrega uno o mas elementos al array al principio del array. 
+    numberos.unshift()
+.sort() : Ordena los elementos localmente, por abecedario, orden natural.
+.splice(START, POSITIONStoREMOVE, NEWITEM, NEWITEM...) : Agrega y/o elimina elementos de un array desde la posicion especificada incluida hasta las siguientes. 
+    
+    Accesores:
+.join("separador") : Convierte todo el array en un string y si especifico el separador, a cada elemento del array lo va a separar con el parametro
+.slice() : Devuelve un array con los elementos de un array desde un inicio hasta fin(no incluido)
+    .slice(0,3);
+includes, indexOf, lastIndexOf, toString() se pueden user con arrays;
+    
+    Repeticion:
+.filter() : La cualidad es que puedo recorrer cada elemento del array y poder verificar una condicion y este devuelve un array nuevo.
+.forEach() : Recorre cada elemento del array pero no se devuelve un nuevo array 
+
+
+Console:
+    Funciones de registro: 
+console.log()
+console.info()
+console.warn()
+console.table()
+    Funcioens de conteo:
+console.count() - console.countReset()
+    Funciones de grupo:
+console.group() : Crea un grupo que agrupa todos los console que se ejecuten en posterior.
+console.groupEnd() : Se finaliza el grupo actual. Si hay uno dentro de otro, se cierra y pasa al padre.
+console.groupCollapsed()
+    Funciones de tiempo:
+console.time() : Inicia un temporizador
+console.timeLog() : Muestra el tiempo contando
+console.timeEnd() : Finaliza el temporizador
+ 
+
+
+ DOM
+
+getElementById() Selecciona el elemento con el ID especificado
+getElementByTagName() Seleccionat todos los elementos con la etiqueta especificada
+querySelector() : Devuelve el primer elemento que coincida con el grupo especificado.
+querySelectorAll() : Devuelve todos
+
+setAttribute("atributo", "valor") : Modifica o agrega un atributo al elemento.
+getAttribute("atributo") : Obtener el valor que posee el atributo.
+
+Atributos:
+contentEditable => true or false : Modificar el contenido del elemento
+dir => ltr , rtl
+hidden : oculta el elemento

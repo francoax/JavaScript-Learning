@@ -1,3 +1,0 @@
-console.time();
-
-console.timeLog();

@@ -169,3 +169,58 @@ Atributos:
 contentEditable => true or false : Modificar el contenido del elemento
 dir => ltr , rtl
 hidden : oculta el elemento
+
+Input Atributos:
+form : Vincula el input a un form en especifico existente.
+
+Element ClassList
+add() 
+remove()
+item(posicion) : Devuelve la clase en la posicion especificada.
+contains() : Verificar si el elemento tiene la clase.
+toggle() : Agrega o elimina la clase especificada. Si está, la elimina y devuelve false. Si no esta, la agrega y devuelve true. 
+            Puede especificarse true o false como segundo parametro. Con true se deja si o si la clase. Con false la saca y si no esta no la pone.
+replace(a encontrar, el reemplazo) 
+
+.textContent : Devuelve el contenido de la etiqueta sin incluir el HTML.
+.innerHTML : Muestra todo el contenido con HTML incluido. Inserta elementos al elemento.
+.outerHTML : Muestra la etiqueta completa.
+
+createElement() : Crear un elemento HTMl. Es key sensitive. Todo en mayuscula.
+createTextNode() : Crea un nodo de texto
+appendChild() : Se aplica al nodo padre para agregar un nodo hijo.
+createDocumentFragment() : Para crear un fragmento de codigo HTML y ahorrar recursos
+
+firstChild : Devuelve el primer hijo. Si hay espacios en blanco devuelve #text
+lastChild : Lo mismo pero el ultimo
+firstElementChild : Devuelve el primer elemento de los hijos.
+lastElementChild : Lo mismo pero el ultimo.'
+childNodes : Devuelve todos los nodos hijos. Ademas de los #text
+children : Devuelve todos los elementos, las etiquetas. Devuelve un HTMLCollection que puede ser recorrido con un ForOf
+
+replaceChild() : Reemplaza un child por otro.
+removeChild() : Elimina un hijo de un elemento padre.
+hasChildNodes() 
+const contenedor = document.querySelector(".contenedor");
+
+const parrafo = document.createElement("P");
+const h2_nuevo = document.createElement("H2");
+h2_nuevo.innerHTML = "Nuevo Titulo"; 
+
+h2_antiguo = document.querySelector(".h2");
+
+contenedor.replaceChild(h2_nuevo, h2_antiguo); 
+
+
+.parentElement : Devuelve el elemento padre contenedor.
+
+
+Siblings : Etiquetas que se encuentran dentro del mismo padre, al mismo nivel.
+
+.nextElementSibling : Devuelve el siguiente elemento.
+.previousElementSibling : Devuelve el elemento anterior.
+
+
+closest() : Selecciona el elemento ascendente mas cercano al elemento. Toma todo lo que esta hacia arriba hasta el elemento padre que lo encierra.
+
+

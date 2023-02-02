@@ -1,0 +1,92 @@
+Screen:
+    Objeto que hereda window y representa a la pantalla.
+
+.screenLeft: Devuelve la distancia que hay entre el borde de la pantalla y el navegador
+.screenTop: Lo mismo pero con el borde superior.
+Ambas no pueden modificarse, solamente se obtienen los valores.
+.scrollX: Cantidad de pixeles desplazados horizontalmente en el navegador. 
+.scrollY: Lo mismo pero verticalmente.
+.scroll(x,y): Desplaza la pantalla con las coordenadas especificadas. 
+
+resizeBy(): Cambia el tama;o de la ventana actual en una cantidad especificada.
+resizeTo(): redimensiona la ventana.
+moveBy(): mueve la ventana en una ubicacion relativa.
+moveTo(): mueve la ventana en una ubicacion absoluta.
+
+Objetos barprop => despues verlo bien.
+
+Window.location:
+location.href : Devuelve la ruta completa. (https://.....com)
+location.hostname : devuelve el dominio de la pagina. (www.google.com)
+location.pathname: Devuelve la raiz donde se encuentra.
+location.protocol: el protocolo de la pagina.
+location.assign(): carga un nuevo documento web.
+
+Eventos:
+un evento tiene funciones y propiedades
+El uso de EventsHandlers por un lado no son tan recomendables porque pueden desactivarse.
+Recomendado => utilizar eventListener.
+
+element.addEventListener("evento", funcion);
+
+element.addEventListener("evento", ()=> {
+    ....;
+});
+
+element.addEventListener("evento", function);
+
+function saludar() {
+    alert('hola');
+    button.removeEventListener("click", saludar);
+}
+
+button.addEventListener("click",(event) => {
+    console.log(event)   
+});                 // De esta manera se especifica el event que sucedio. 
+
+button.addEventListener("click",(event) => {
+    console.log(event.target)   
+});
+
+Flujo de eventos - Event Bubbling - Event Capturing
+Los mas especificos son los hijos. Los menos especificos son los contenedores.
+Del mas especifico al menos o alreves.
+bubbling => por defecto 
+
+container.addEventListener('click', (event) => {
+    alert('click en contendor'); 
+}, true)            //Con el TRUE, se da mas especificidad. Este vendria a ejecutarse por mas que haya otros arriba.
+
+button.addEventListener("click",(event) => {
+    alert('click en boton');
+    event.stopPropagation();    // => Con esto se evita la propagacion de eventos. 
+});
+
+Eventos : 
+eventos de mouse:
+- click
+- dbclick : double click
+- mouseover : sucede cuando el puntero se mueve sobre el elemento o uno de sus hijos.
+- mouseout : sucede cuando se mueve el puntero fuera de un elemento o de sus elementos seundarios.
+
+- contextmenu : sucede cuando se da click derecho para abrir el menu contextual.
+- mouseenter : sucede cuando el puntero se mueve dentro de un elemento
+- mousemove : sucede cudando el puntero se mueve sobre un elemento.
+- mouseleave : sucede cuando el puntero se mueve fuera del elemento.
+- mousedown : uando se apreta el click del mouse sobre un elemento
+- mouseup : lo mismo pero cuando se levanta el click.
+
+eventos de teclado:
+- keydown : si se presiono la tecla
+- keypress : si la tecla fue presionada y soltada.
+- keyup : si la tecla se presiono y solto dentro del elemento correspondiente
+
+eventos de interface:
+- error: cuando sucede un error dentro de la carga de archivos multimedia.
+- load: ocurro cuando se carga el archivo
+- beforeunload : ocurre antes de que el documento este a punto de descargarse.
+- unload : sucede cuando te fuiste del documento.
+- resize : sucede cuando se cambia la resolucion de la pagina.
+- scroll : cuando se scrollea xd
+- select : ocurre cuando se selecciona el texto dentro de un input o un textarea.
+

@@ -58,7 +58,7 @@ POO:
 class animal {
     
     constructor(especie, edad, color){
-        this.especie = especie;  //atributos => this. Las estos definiendo aca.
+        this.especie = especie;  //atributos => this. Las estoy definiendo aca.
         this.edad = edad;
         this.color = color;
         this.info = `Especie: ${this.especie}, Edad: ${this.edad} y color: ${this.color}`;

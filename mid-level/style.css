@@ -1,0 +1,12 @@
+.contenedor1 {
+    background-color: red;
+    padding: 20px;
+    height: 100px;
+}
+
+.input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+    color: #444;
+}

@@ -90,3 +90,41 @@ eventos de interface:
 - scroll : cuando se scrollea xd
 - select : ocurre cuando se selecciona el texto dentro de un input o un textarea.
 
+const input = document.querySelector('.input');
+const contenedor = document.querySelector('.seleccionado');
+
+
+input.addEventListener("select", (e)=>{
+    let start = e.target.selectionStart;
+    let end = e.target.selectionEnd;
+    let text = input.value;
+    contenedor.innerHTML = text.substring(start, end);
+})
+
+
+Timers:
+setTimeout(()=> {}, time.ms) : Recibe una funcion como parametro.
+clearTimeout(temporizador a detener.)
+setInterval() : Lo mismo que settimeout pero se ejecuta constantemente.
+clearInterval(intervalo)
+
+Manejo de excepciones:
+ECMAScript : esta relacionada a todas las excepciones de javascipt.
+DOMException y DOMError : basicamente excepciones del DOM.
+
+try {
+
+} catch(error) {
+    console.log();      //CATCH incondicional
+}
+
+
+try {
+
+} catch(error) {
+    if(bla bla) {
+    console.log();
+    }      //CATCH condicional
+}
+
+Lo recomendado es no abusar del uso de try catch, solamente en ocaciones muy especificas

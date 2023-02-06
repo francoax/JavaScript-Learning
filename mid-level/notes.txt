@@ -128,3 +128,20 @@ try {
 }
 
 Lo recomendado es no abusar del uso de try catch, solamente en ocaciones muy especificas
+
+Codigo obsoleto:
+- Deprecated, inutil, no recomendado, puede tener bugs o fallos, esta por ser reemplzado
+o porque hay mejores formas de hacerlo
+    Efectos negativos: excesivo uso de recursos, bugs o fallos, innecesariamente largo, y el SEO.
+Como verificar cuando esta obsoleto.
+    Buscar en pagins oficiales, como developer mozilla o w3schools
+
+CallBacks
+Es una funcion dentro de otra funcion.
+Es una funcion que le pasa como parametro otra funcion.
+function prueba(callback){
+    callback("pedro");
+}
+
+
+prueba(nombre => console.log(nombre));

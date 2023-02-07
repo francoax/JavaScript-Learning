@@ -123,7 +123,7 @@ try {
 
 } catch(error) {
     if(bla bla) {
-    console.log();
+    console.log(error);
     }      //CATCH condicional
 }
 
@@ -145,3 +145,22 @@ function prueba(callback){
 
 
 prueba(nombre => console.log(nombre));
+
+Promesas (trabajan de manera asincrona)
+    Es un objeto que tiene dos callbacks -> reject y resolve
+Representan la terminacion de una operacion asincrona y el fracaso de una operacion asincrona
+
+const promise = new Promise((resolve, reject)=> { // Recibe como parametros ambos callbacks.
+    ...
+})
+
+promise.then(); // Esto para poder acceder a la promesa.
+promise.then((resultado) => {
+    ....
+}).catch() // Esto para poder manejar si ocurre un error al ejecutar la promesa.
+
+Async Await 
+    Un buen uso que tienen es cuando se realiza una serie de peticiones y estas vienen en distinto orden,
+    pero se requiere que cumplan el orden. En este caso, las promesas no funcionarian, sino async y await.
+
+Respeta el orden de ejecucion. No se resolvio el await, no ejecuta lo siguiente.

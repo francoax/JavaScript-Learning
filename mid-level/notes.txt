@@ -164,3 +164,88 @@ Async Await
     pero se requiere que cumplan el orden. En este caso, las promesas no funcionarian, sino async y await.
 
 Respeta el orden de ejecucion. No se resolvio el await, no ejecuta lo siguiente.
+
+Peticiones HTTP
+    Solicitudes que se realizan a un servidor y este devuelve data.
+
+JSON (JavaScript OBJECT notation)
+Serializado: cuando el formato de json esta en un string.
+Deserializado: no esta en string y es un objeto dentro del codigo.
+
+const deserializado = JSON.parse(object) --> Para deserializar un objeto JSON serializado. (para trabajarlo al obtenerlo)
+const serializado = JSON.stringify(object) --> Para serializar un objeto json deserializado. (para enviarlo)
+
+new XMLHttpRequest() --> objeto para realizar peticiones http
+
+request.open("method", "URL") --> para pre realizar la peticion. 
+
+request.open("GET", 'ürl")
+request.send() --> envia la solicitud al servidor.
+
+Un XMLHttpRequest tiene 4 estados:
+    1 : la solicitud se creo correctamente.
+    2 : la solicitud se envio correctamente.
+    3 : la solicitud se esta procesando y ya da una respuesta.
+    4 : la solicitud concreto y el resultado esta listo para usarse.
+
+Esto sirve para poder incluir a internet explorer.
+if (window.XMLHttpRequest) request = new XMLHttpRequest()
+else request = new ActiveXObject("Microsoft.XMLHTTP");
+
+
+Fetch
+    Esta basado en promesas. Siempre devuelve una promesa encapsulada. No se puede acceder de una a los datos.
+Para esto, hay una serie de metodos para poder acceder:
+    - text() -> string.
+    - json() -> object json.
+    - blob() -> image.
+    - formdata()            // Ver ambos.
+    - arrayBuffer()
+
+fetch("https://reqres.in/api/users/2")
+    .then(res => res.text())
+    .then(res => console.log(res))
+
+fetch("https://reqres.in/api/users", {
+    method : "POST",
+    body : JSON.stringify({
+        "name" : "franco",
+        "job" : "developer"
+    }),
+    headers : {"Content-type" : "application/json"}
+}).then(res => res.json())
+.then(res => console.log(res))
+
+const image = document.querySelector('.imagen');
+
+fetch("https://picsum.photos/200/300")
+    .then(res => res.blob())
+    .then(img => image.src = URL.createObjectURL(img));
+
+RECOMENDACIONES:
+    Utilizar el objeto XMLHttpRequest no es tan recomendado, no se utiliza tanto hoy en dia.
+    Fetch es utilizado mucho hoy en dia como Axios.
+    Para muchas peticiones -> axios
+    Para cosas mas especificos -> fetch
+
+Axios
+    Esta basado en promesas, pero utiliza la teconologia XMLHttpRequest, para ejecutar sus promesas.
+
+axios("json.txt")
+    .then(res => console.log(res)); // por default sucede un get.
+
+axios.post("https://reqres.in/api/users", {
+    "name" : "franco",
+    "age" : 22                          // Como segundo parametro iria el objeto que queremos enviar.
+}).then(res => console.log(res));
+    
+
+const getName = async () => {
+    let req = await fetch("json.txt"); // o puede ser axios
+    let res = await req.json(); // y en ese caso esto no seria necesario.
+    let HTMLcode = `Nombre : ${res.name}<br>
+                    Edad: ${res.age}`;
+    document.querySelector(".resultado").textContent = HTMLcode;
+}
+
+document.getElementById('name').addEventListener("click", getName);
